@@ -1,0 +1,49 @@
+name: SayThis
+options:
+  bundleIdPrefix: com.praveenmurugesan
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+    IPHONEOS_DEPLOYMENT_TARGET: 17.0
+packages: {}
+targets:
+  SayThis:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - SayThis
+    info:
+      path: SayThis/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: SayThis
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        UILaunchStoryboardName: LaunchScreen
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.praveenmurugesan.SayThis
+        INFOPLIST_KEY_CFBundleDisplayName: SayThis
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: DNQVHANQBU
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        TARGETED_DEVICE_FAMILY: "1"
+    dependencies: []
+
+  SayThisTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - SayThisTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.praveenmurugesan.SayThisTests
+    dependencies:
+      - target: SayThis
