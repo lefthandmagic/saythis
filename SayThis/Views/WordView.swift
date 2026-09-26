@@ -109,10 +109,15 @@ struct WordView: View {
     }
 
     private func speakButton(_ title: String, systemImage: String, slow: Bool) -> some View {
-        Button {
-            player.speak(word.displayWord, accent: accent, slow: slow)
+        let active = player.isSpeaking && player.slow == slow
+        return Button {
+            if active {
+                player.stop()
+            } else {
+                player.speak(word.displayWord, accent: accent, slow: slow)
+            }
         } label: {
-            Label(title, systemImage: systemImage)
+            Label(active ? "Stop" : title, systemImage: active ? "stop.fill" : systemImage)
                 .frame(maxWidth: .infinity)
         }
         .buttonStyle(.borderedProminent)
